@@ -1,11 +1,14 @@
 import "./App.css"
-import { Card, Typography } from "./components"
-import { useAsync } from "./react-utils/useAsync"
-import { PostModel, PostService } from "./posts"
+import { CardForPost, PostService } from "./posts"
 import styled from "styled-components"
+import { useAsync } from "./react-utils"
 
 const PostsList = styled.ul`
   list-style-type: none;
+  max-width: 555px;
+  li ~ li {
+    margin-top: 20px;
+  }
 `
 
 function App() {
@@ -23,14 +26,6 @@ function App() {
         ))}
       </PostsList>
     </>
-  )
-}
-
-function CardForPost({ post }: { post: PostModel }) {
-  return (
-    <Card>
-      <Typography>{post.text}</Typography>
-    </Card>
   )
 }
 

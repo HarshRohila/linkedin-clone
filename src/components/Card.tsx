@@ -1,14 +1,18 @@
 import Box from "@mui/material/Box"
 import { default as MCard } from "@mui/material/Card"
+import { CommonProps } from "../react-utils"
+import styled from "styled-components"
 
-interface CardProps {
-  children?: React.ReactNode
-}
+const StyledMCard = styled(MCard)`
+  padding: 8px 10px;
+`
 
-function Card({ children }: CardProps) {
+interface CardProps extends CommonProps {}
+
+function Card({ children, className }: CardProps) {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <MCard variant="outlined">{children}</MCard>
+    <Box className={className} sx={{ minWidth: 275 }}>
+      <StyledMCard variant="outlined">{children}</StyledMCard>
     </Box>
   )
 }
